@@ -1,0 +1,8 @@
+CC = /usr/bin/gcc
+CFLAGS = -Wall -Wextra -Wpedantic -O3 -std=c99 -march=native -fomit-frame-pointer -flto
+
+SOURCES = align.h testKetjev2.h UT.h brg_endian.h Xoodoo.h config.h Xoodoo-SIMD128.c testKeyakv2.h Xoodoo-SnP.h genKAT.h testSP800-185.h Xoodoo-times4-SIMD128.c KeccakP-1600-AVX2.s Xoodoo-times4-SnP.h KeccakP-1600-SnP.h testKravatte.h testSponge.h Xoodoo-times8-SIMD256.c Xoodoo-times8-SnP.h KeccakSponge.h        testKravatteModes.h Xoodyak-full-block-SIMD128.c testXoodyak.h Xoodyak-parameters.h testMotorist.h Xoofff.h testDuplex.h  testPermutations.h testXoofff.h XoofffModes.h testKangarooTwelve.h testXoofffModes.h testPRG.h main.c
+
+
+test: main.o
+	$(CC) $(CFLAGS) $(SOURCES)
