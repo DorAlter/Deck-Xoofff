@@ -1,0 +1,41 @@
+[package]
+name = "xoofff"
+version = "0.1.3"
+edition = "2021"
+authors = ["Anjan Roy <hello@itzmeanjan.in>"]
+description = "Farfalle with Xoodoo: Parallel Permutation-based Cryptography"
+documentation = "https://github.com/itzmeanjan/xoofff"
+readme = "README.md"
+repository = "https://github.com/itzmeanjan/xoofff.git"
+license = "MIT"
+keywords = ["xoodoo", "farfalle", "deck-function", "permutation", "xoofff"]
+categories = ["cryptography"]
+exclude = ["/kats"]
+
+[dependencies]
+crunchy = "=0.2.2"
+
+[dev-dependencies]
+rand = "=0.8.5"
+test-case = "=3.3.1"
+criterion = "=0.5.1"
+hex = "=0.4.3"
+
+[target.'cfg(any(target_arch = "x86_64", target_arch = "x86"))'.dependencies]
+criterion-cycles-per-byte = "=0.6.0"
+
+[features]
+dev = []
+simd = []
+
+[lib]
+bench = false
+
+[[bench]]
+name = "xoodoo"
+harness = false
+required-features = ["dev"]
+
+[[bench]]
+name = "xoofff"
+harness = false
